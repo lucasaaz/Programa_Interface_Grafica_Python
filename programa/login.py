@@ -1,7 +1,5 @@
 import app
 from programa import bancoDados
-# from bancoDados import BancoDados
-
 
 from customtkinter import *
 import customtkinter as ctk
@@ -19,7 +17,7 @@ class App(ctk.CTk, bancoDados.BancoDados):
         ctk.set_default_color_theme("dark-blue")
         janela.iconbitmap("image/m2.ico")
         janela.geometry('560x460+400+120')
-        janela.title(" Curso Maxter")
+        janela.title(" Curso")
         janela.resizable(False, False)    
 
     def tela_de_login(janela):
