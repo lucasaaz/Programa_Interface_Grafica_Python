@@ -1,7 +1,6 @@
 import app 
 from tkinter import messagebox
 from programa import bancoDados
-# from bancoDados import BancoDados
 
 
 from docxtpl import DocxTemplate
@@ -24,9 +23,9 @@ class Imprimir():
                         'EMAIL' : self.email_aluno.get()}
             doc.render(context)
             doc.save("word\\IMPRIMIR.docx")
-            messagebox.showinfo('Curso Maxter', 'Imprimir contrato')
+            messagebox.showinfo('Curso', 'Imprimir contrato')
         except:
-            messagebox.showerror('Curso Maxter', 'ERRO!\nNão foi possivel salvar dados no Word.')
+            messagebox.showerror('Curso', 'ERRO!\nNão foi possivel salvar dados no Word.')
 
     def imprimirArquivo(self):
         caminho = r"C:\\Users\\Desktop\\Sistema\\word\\IMPRIMIR.docx"
