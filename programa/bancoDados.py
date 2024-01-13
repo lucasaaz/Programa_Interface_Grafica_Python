@@ -41,19 +41,19 @@ class BancoDados():
 
         #Verificar se dados estão corretos
         try:
-            if janela.resultado[0][0] != 'MAXTER' or janela.resultado[0][1] != '123456':
+            if janela.resultado[0][0] != 'USUARIO' or janela.resultado[0][1] != 'SENHA':
                 print('Usuário não logado')
-            elif janela.resultado[0][0] in 'MAXTER' and janela.resultado[0][1] in '123456':
+            elif janela.resultado[0][0] in 'USUARIO' and janela.resultado[0][1] in 'SENHA':
                 print('Usuário logado')
                 global status1
                 status1 = True
-                # messagebox.showinfo(title='Curso maxter', message='Usuário logado')
+                # messagebox.showinfo(title='Curso', message='Usuário logado')
                 return status1
         except:
             status1 = False
             print(status1)
             print('Usuario não existe')
-            # messagebox.showinfo(title='Curso Maxter', message='ERRO!\nPor Favor, tente novamente')
+            # messagebox.showinfo(title='Curso', message='ERRO!\nPor Favor, tente novamente')
             return status1
         
         #Fechar banco de dados
@@ -92,9 +92,9 @@ class BancoDados():
                                         "{self.valor_total.get()}", "{self.taxa_matricula.get()}", "{self.plano_1.get()}", "{self.plano_2.get()}", "1")'''
             self.cursor.execute(self.comando)
             self.conexao.commit()
-            messagebox.showinfo('Curso Maxter', 'Aluno salvo com sucesso.')
+            messagebox.showinfo('Curso', 'Aluno salvo com sucesso.')
         except:
-            messagebox.showerror('Curso Maxter', 'ERRO!\nNão foi possivel salvar dados.')
+            messagebox.showerror('Curso', 'ERRO!\nNão foi possivel salvar dados.')
 
         #Fechar banco de dados
         self.desconectar_bd()
@@ -103,17 +103,6 @@ class BancoDados():
 
         #Conectando com o banco de dados
         self.conectar_bd()
-
-        # try:
-        #     #Comando SQL para buscar ID usuario
-        #     self.comando = f'SELECT * FROM cadastro1 WHERE nome_aluno = "{self.nome_aluno.get()}" '
-        #     self.cursor.execute(self.comando)
-        #     self.resultado = self.cursor.fetchall()
-
-        #     self.id = self.resultado[0][0]
-        # except:
-        #     messagebox.showerror('Curso Maxter', 'ERRO!\nNão foi possivel buscar aluno.')
-
 
         try:
             #Comandos SQL para atualizar dados usuario
@@ -129,9 +118,9 @@ class BancoDados():
                                 WHERE nome_aluno = "{self.nome_aluno.get()}" or cpf = "{self.cpf_aluno.get()}" '''
             self.cursor.execute(self.comando)
             self.conexao.commit()
-            messagebox.showinfo('Curso Maxter', 'Aluno atualizado com sucesso.')
+            messagebox.showinfo('Curso', 'Aluno atualizado com sucesso.')
         except:
-            messagebox.showerror('Curso Maxter', 'ERRO!\nNão foi possivel achar usuario.')
+            messagebox.showerror('Curso', 'ERRO!\nNão foi possivel achar usuario.')
 
         #Fechar banco de dados
         self.desconectar_bd()
@@ -151,7 +140,7 @@ class BancoDados():
             self.cursor.execute(self.comando)
             self.conexao.commit()
         except:
-            messagebox.showerror('Curso Maxter', 'ERRO!\nNão foi possivel Atualizar Status.')
+            messagebox.showerror('Curso', 'ERRO!\nNão foi possivel Atualizar Status.')
 
         #Fechar banco de dados
         self.desconectar_bd()
@@ -194,7 +183,7 @@ class BancoDados():
             self.identidade_responsavel.insert(0, self.resultado[0][22])
             self.celular_responsavel.insert(0, self.resultado[0][23])
         except:
-            messagebox.showerror('Curso Maxter', 'ERRO!\nNão foi possivel buscar aluno.')
+            messagebox.showerror('Curso', 'ERRO!\nNão foi possivel buscar aluno.')
 
 
         #Fechar banco de dados
@@ -248,7 +237,7 @@ class BancoDados():
                 self.lb_forma_pagamento_aluno_enem.set(self.resultado[0][29])
                 self.lb_status_aluno.set(self.resultado[0][30])
         except:
-            messagebox.showerror('Curso Maxter', 'ERRO!\nNão foi possivel buscar aluno.')
+            messagebox.showerror('Curso', 'ERRO!\nNão foi possivel buscar aluno.')
 
 
         #Fechar banco de dados
@@ -275,7 +264,7 @@ class BancoDados():
             return self.mes
 
         except:
-            messagebox.showerror('Curso Maxter', 'ERRO!\nNão foi possivel buscar aluno.')
+            messagebox.showerror('Curso', 'ERRO!\nNão foi possivel buscar aluno.')
 
 
         #Fechar banco de dados
@@ -289,7 +278,7 @@ class BancoDados():
 
         try:
             #Comando SQL para buscar usuario
-            self.comando = f'SELECT id, nome_aluno, curso, plano_2 FROM cursomaxter.cadastro1 WHERE status = "NÃO PAGO" AND atual = "1"; '
+            self.comando = f'SELECT id, nome_aluno, curso, plano_2 FROM curso.cadastro1 WHERE status = "NÃO PAGO" AND atual = "1"; '
             self.cursor.execute(self.comando)
             self.resultado = self.cursor.fetchall()
 
@@ -305,7 +294,7 @@ class BancoDados():
             return self.listaAlunoNaoPago
 
         except:
-            messagebox.showerror('Curso Maxter', 'ERRO!\nNão foi possivel buscar aluno.')
+            messagebox.showerror('Curso', 'ERRO!\nNão foi possivel buscar aluno.')
 
 
         #Fechar banco de dados
